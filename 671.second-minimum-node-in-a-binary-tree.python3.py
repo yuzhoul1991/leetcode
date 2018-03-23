@@ -19,6 +19,7 @@ class Solution:
             if not node: return
             if node.val != root_val: 
                 second_minimum = min(second_minimum, node.val)
+                # The rest of the subtree will for sure be larger than node.val so need to prune it
                 return
             traverse(node.left)
             traverse(node.right)
