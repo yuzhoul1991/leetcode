@@ -13,10 +13,13 @@ class Solution:
         ret = []
         # Use a sliding window from m-1 to n
         # update the window_counter on the fly
+        # creating counter object each time will be TLE
         for i in range(m-1, n):
             window_counter[s[i]] += 1
             if window_counter == p_counter:
                 ret.append(i-m+1)
+            # remove the oldest item from counter
+            # delete if it becomes zero
             window_counter[s[i-m+1]] -= 1
             if not window_counter[s[i-m+1]]: del window_counter[s[i-m+1]]
 
