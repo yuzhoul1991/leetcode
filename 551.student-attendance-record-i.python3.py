@@ -10,6 +10,8 @@ class Solution:
             if val == 'A':
                 if a_count > 0: return False
                 a_count += 1
+            # Notice how each char that is not 'L' need to reset varaible two_l
+            # to false
             if val == 'L':
                 if two_l: return False
                 if idx > 0 and s[idx-1] == 'L':
