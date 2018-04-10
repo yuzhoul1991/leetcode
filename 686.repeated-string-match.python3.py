@@ -5,13 +5,13 @@ class Solution:
         :type B: str
         :rtype: int
         """
-        if any(x not in A for x in B): return -1
-        if B in A: return 1
+        # For B to be in A, at most A need to be repeated
+        # ceil(len(B) / len(A))
+        # In case B is integer multiple of A, we need to add 1 to it
+        most = math.ceil(len(B) / len(A)) + 1
         ret = 1
-        string = A
-        while len(string) <= 2 * len(B):
-            string += A
+        for i in range(most):
+            if B in A * (1+i):
+                return ret
             ret += 1
-            if B in string: return ret
         return -1
-        
