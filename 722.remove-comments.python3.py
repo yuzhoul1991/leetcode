@@ -14,6 +14,7 @@ class Solution:
             idx = 0
             while idx < len(line):
                 char = line[idx]
+                # Notice the last condition
                 if char == '/' and idx + 1 < len(line) and line[idx+1] == '/' and not in_blk_comment:
                     if not in_blk_comment: 
                         in_comment = True
