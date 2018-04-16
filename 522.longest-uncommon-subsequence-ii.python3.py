@@ -18,6 +18,8 @@ class Solution:
             return x_idx == len(x)
 
         strs.sort(key=len, reverse=True)
+        # Notice we cannot uniqify the strs list because that will make duplicates
+        # disappear and generate wrong answer at the loop below
         n = len(strs)
         for i in range(n):
             current_string = strs[i]
