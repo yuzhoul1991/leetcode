@@ -14,6 +14,11 @@ class MyCalendarTwo(object):
         :type end: int
         :rtype: bool
         """
+        # Notice there is NO overlap for [s1, e1) and [s2, e2) if
+        # s1 >= e2 or s2 >= e1
+        # by de Morgans there IS overlap IFF
+        # s1 < e2 and s2 < e1
+        # Notice the testing of min(j, end) > max(i, start)  in the if gets TLE
         for i, j in self.double_book:
             if start < j and end > i:
                 return False
