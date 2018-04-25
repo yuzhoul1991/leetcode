@@ -11,6 +11,7 @@ class Solution:
         :rtype: List[Interval]
         """
         if not intervals: return []
+        # Need to sort before iteration
         intervals.sort(key=lambda x: x.start)
         ret = [intervals[0]]
         for i in range(1, len(intervals)):
