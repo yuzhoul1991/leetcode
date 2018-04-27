@@ -13,20 +13,19 @@ class Solution:
         for idx, arr in enumerate(graph):
             graphs[idx] = arr
 
-        visited = set()
+        # color can be used as visited too
         colors = {}
-        def dfs(node):
-            if node in visited: return True
-            visited.add(node)
-            color = colors[node]
-            for nei in graphs[node]:
-                if nei in colors and colors[nei] == color: return False
-                colors[nei] = -color
-                if not dfs(nei): return False
-            return True
-
         for node in range(n):
-            if node not in visited:
-                if node not in colors: colors[node] = 1
-                if not dfs(node): return False
+            if node not in colors:
+                stack = [node]
+                colors[node] = 1
+                while stack:
+                    node = stack.pop()
+                    for nei in graphs[node]:
+                        if nei not in colors:
+                            stack.append(nei)
+                            colors[nei] = -colors[node]
+                        elif colors[nei] == colors[node]:
+                            return False
         return True
+
