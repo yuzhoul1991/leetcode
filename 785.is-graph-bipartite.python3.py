@@ -8,6 +8,7 @@ class Solution:
         # red color, keep labeling, if we found a neighbor with the same color as self
         # it is not bipartite
 
+        # Since it is a function that needs to return a boolean, iterative might be better than recursion
         graphs = {}
         n = len(graph)
         for idx, arr in enumerate(graph):
