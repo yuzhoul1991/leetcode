@@ -16,6 +16,9 @@ class Solution:
         ret = ptr = ListNode(-1)
         heap = []
         # initialize heap with the first node val in all lists
+        # We push to heap a tuple that contains the idx of the lists
+        # this make sure when val is the same it does not need to compare
+        # the ListNode object which is not comparable
         for idx, l in enumerate(lists):
             if l:
                 heapq.heappush(heap, (l.val, idx, l))
